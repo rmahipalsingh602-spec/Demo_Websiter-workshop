@@ -1,0 +1,330 @@
+/* ==========================================================================
+   VARDHAN WOODCRAFT & FINE CARPENTRY - DESIGN SYSTEM & CORE STYLES
+   Master Crafted Timber & Architectural Woodwork
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Brand Wood Tones */
+  --color-timber-900: #1a110a;
+  --color-timber-800: #291a11;
+  --color-timber-700: #3b2518;
+  --color-timber-600: #543623;
+  --color-timber-500: #7a4f32;
+  --color-timber-400: #a36b44;
+
+  /* Honey & Amber Wood Accents */
+  --color-amber-500: #c9822b;
+  --color-amber-400: #df973b;
+  --color-amber-300: #f1b35e;
+  --color-amber-100: #faebd7;
+  --color-amber-glow: rgba(223, 151, 59, 0.25);
+
+  /* Warm Canvas & Surfaces (Light Mode) */
+  --bg-primary: #faf7f2;
+  --bg-secondary: #f3ede2;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fbf9f5;
+  --bg-elevated: #ffffff;
+  --border-subtle: #e6ded4;
+  --border-focus: #c9822b;
+  
+  /* Text Tones (Light Mode) */
+  --text-primary: #211914;
+  --text-secondary: #5e5147;
+  --text-muted: #8b7d72;
+  --text-inverse: #ffffff;
+
+  /* Accent & Functional */
+  --accent-gold: #c9822b;
+  --accent-gold-gradient: linear-gradient(135deg, #df973b 0%, #b86e1b 100%);
+  --accent-wood-gradient: linear-gradient(135deg, #3b2518 0%, #1a110a 100%);
+  --accent-hero-overlay: linear-gradient(180deg, rgba(26, 17, 10, 0.45) 0%, rgba(26, 17, 10, 0.88) 100%);
+  --success: #16a34a;
+  --warning: #d97706;
+  --error: #dc2626;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(33, 25, 20, 0.05);
+  --shadow-md: 0 6px 20px rgba(33, 25, 20, 0.08);
+  --shadow-lg: 0 14px 36px rgba(33, 25, 20, 0.12);
+  --shadow-xl: 0 24px 50px rgba(33, 25, 20, 0.16);
+  --shadow-glow: 0 8px 30px rgba(201, 130, 43, 0.3);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-serif: 'Cinzel', Georgia, serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   DARK THEME PALETTE
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-primary: #120e0b;
+  --bg-secondary: #1a1512;
+  --bg-card: #201a15;
+  --bg-card-hover: #29211b;
+  --bg-elevated: #241d18;
+  --border-subtle: #332921;
+  --border-focus: #df973b;
+
+  --text-primary: #f5eeea;
+  --text-secondary: #c2b5aa;
+  --text-muted: #8c7f73;
+  --text-inverse: #120e0b;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 24px 50px rgba(0, 0, 0, 0.75);
+  --shadow-glow: 0 8px 32px rgba(223, 151, 59, 0.25);
+  --accent-hero-overlay: linear-gradient(180deg, rgba(18, 14, 11, 0.6) 0%, rgba(18, 14, 11, 0.95) 100%);
+}
+
+/* ==========================================================================
+   BASE RESET
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+/* Wood Grain Subtle Texture Effect */
+.wood-texture-bg {
+  position: relative;
+}
+.wood-texture-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: radial-gradient(#291a11 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+[data-theme="dark"] .wood-texture-bg::before {
+  background-image: radial-gradient(#df973b 1px, transparent 1px);
+  opacity: 0.04;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.heading-serif {
+  font-family: var(--font-serif);
+  letter-spacing: 0.02em;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.container-narrow {
+  max-width: 960px;
+}
+
+.section {
+  padding-block: 96px;
+  position: relative;
+}
+
+.section-sm {
+  padding-block: 60px;
+}
+
+/* Section Header Styling */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(201, 130, 43, 0.12);
+  border: 1px solid rgba(201, 130, 43, 0.3);
+  border-radius: var(--radius-full);
+  color: var(--color-amber-400);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.section-badge svg {
+  width: 15px;
+  height: 15px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  margin-bottom: 18px;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin-inline: auto;
+  color: var(--text-secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gold-gradient-text {
+  background: var(--accent-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent-gold-gradient);
+  color: #ffffff;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(201, 130, 43, 0.45);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: rgba(201, 130, 43, 0.1);
+  border-color: var(--color-amber-400);
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  background: var(--color-timber-800);
+  color: #ffffff;
+}
+
+.btn-dark:hover {
+  background: var(--color-timber-700);
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 16px 34px;
+  font-size: 1.1rem;
+  border-radius: var(--radius-lg);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #20bd5a;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-pill {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}

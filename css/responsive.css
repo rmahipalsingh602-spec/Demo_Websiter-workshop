@@ -1,0 +1,185 @@
+/* ==========================================================================
+   VARDHAN WOODCRAFT - RESPONSIVE STYLESHEET & MEDIA QUERIES
+   Mobile, Tablet, Desktop & Print Optimization
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .calc-quote-wrapper {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .quote-form-card {
+    position: static;
+  }
+
+  .process-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: 64px;
+  }
+
+  .site-header {
+    padding: 12px 0;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+    width: 100%;
+    padding-block: 8px;
+  }
+
+  .nav-actions .btn-quote-header {
+    display: none;
+  }
+
+  .hero-section {
+    padding-top: 110px;
+    min-height: auto;
+  }
+
+  .hero-stats-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .floating-actions {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .fab-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .fab-tooltip {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+  }
+
+  .calc-card, .quote-form-card {
+    padding: 22px 18px;
+  }
+
+  .selection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+}
+
+/* Print Optimization for Estimate Slip */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .modal-overlay.active,
+  .modal-overlay.active .modal-dialog,
+  .modal-overlay.active .voucher-content,
+  .modal-overlay.active .voucher-content * {
+    visibility: visible;
+  }
+
+  .modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .modal-dialog {
+    border: none;
+    box-shadow: none;
+    max-width: 100%;
+  }
+
+  .modal-close-btn,
+  .voucher-actions,
+  .floating-actions,
+  .site-header {
+    display: none !important;
+  }
+}
